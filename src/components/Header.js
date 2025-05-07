@@ -1,21 +1,14 @@
 import React from "react";
-import { FaMoon, FaSun } from "react-icons/fa";
 import "./Header.scss";
 
-const Header = ({ darkMode, toggleDarkMode }) => {
+const Header = () => {
   return (
     <header className="header">
       <div className="container header-container">
         <div className="logo">
           <h1>CampusGPA</h1>
+          <p className="tagline">GPA Calculator for Sri Lankan Universities</p>
         </div>
-        <button
-          className="theme-toggle-btn"
-          onClick={toggleDarkMode}
-          aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
-        >
-          {darkMode ? <FaSun /> : <FaMoon />}
-        </button>
       </div>
     </header>
   );
