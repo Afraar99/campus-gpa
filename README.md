@@ -14,6 +14,7 @@ A web application specifically designed for Sri Lankan university students to ca
 - Local storage to save student data between sessions
 - Semester-wise and cumulative GPA calculation
 - Import/Export functionality to backup and restore your course data
+- Class designation based on GPA (First Class Honours, Second Class Honours, etc.)
 
 ## Supported Grading Systems
 
@@ -25,8 +26,8 @@ A web application specifically designed for Sri Lankan university students to ca
 ## Technologies Used
 
 - React.js - Frontend UI framework
-- SCSS - Styling with nested rules and variables
-- jsPDF - PDF generation
+- SCSS/Sass - Styling with nested rules and variables
+- jsPDF & jspdf-autotable - PDF generation and formatting
 - React Icons - For UI icons
 - React Toastify - For toast notifications
 - LocalStorage - For saving user data
@@ -43,7 +44,7 @@ A web application specifically designed for Sri Lankan university students to ca
 1. Clone the repository
 
 ```
-git clone https://github.com/yourusername/campus-gpa.git
+git clone https://github.com/Afraar99/campus-gpa.git
 cd campus-gpa
 ```
 
@@ -76,6 +77,7 @@ This will create an optimized production build in the `build` folder.
 3. The GPA will be calculated in real-time
 4. Use the buttons at the bottom to save, import, export or generate PDF reports
 5. Toggle semester breakdown to see semester-wise GPA and progression
+6. View your class designation based on your cumulative GPA
 
 ## Future Enhancements
 
