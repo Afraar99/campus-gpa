@@ -1,16 +1,27 @@
+/* Modern Educational Color Palette */
 :root {
-  --primary-color: #4a69bd;
-  --secondary-color: #6a89cc;
-  --accent-color: #1e3799;
-  --text-color: #333;
-  --light-color: #f5f6fa;
-  --dark-color: #2f3542;
-  --danger-color: #e84118;
-  --success-color: #4cd137;
-  --warning-color: #fbc531;
-  --border-radius: 8px;
-  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Primary Color Palette */
+  --primary-color: #2a7de1; /* Bright Blue */
+  --secondary-color: #41b883; /* Vibrant Green */
+  --accent-color: #145da0; /* Deep Blue */
+
+  /* UI Colors */
+  --text-color: #2d3748; /* Dark Slate */
+  --light-color: #f7fafc; /* Off White */
+  --danger-color: #e53e3e; /* Red */
+  --success-color: #38a169; /* Green */
+  --warning-color: #ecc94b; /* Yellow */
+
+  /* UI Elements */
+  --border-radius: 12px;
+  --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
   --transition: all 0.3s ease;
+
+  /* Glassmorphism Variables */
+  --glass-bg: rgba(255, 255, 255, 0.15);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+  --glass-blur: 10px;
 }
 
 * {
@@ -19,14 +30,22 @@
   box-sizing: border-box;
 }
 
+/* Import Fonts - Add to your index.html head section */
+/* 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+*/
+
 body {
-  font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
-    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: "Inter", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--text-color);
-  background-color: #f9f9f9;
+  background-color: #f4f7fa;
   min-height: 100vh;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 h1,
@@ -35,90 +54,171 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: "Poppins", sans-serif;
   margin-bottom: 1rem;
   font-weight: 600;
   line-height: 1.2;
+  color: var(--primary-color);
+}
+
+h1 {
+  font-size: 2.25rem;
+}
+h2 {
+  font-size: 1.75rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+h4 {
+  font-size: 1.25rem;
 }
 
 a {
   color: var(--primary-color);
   text-decoration: none;
   transition: var(--transition);
+  position: relative;
 
   &:hover {
     color: var(--accent-color);
   }
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+  }
+
+  &:hover:after {
+    width: 100%;
+  }
 }
 
+/* Modern Button Styles */
 button,
 .btn {
   cursor: pointer;
   border: none;
   border-radius: var(--border-radius);
-  padding: 0.5rem 1rem;
+  padding: 0.7rem 1.5rem;
   font-size: 1rem;
+  font-weight: 500;
   transition: var(--transition);
   background-color: var(--primary-color);
   color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 6px rgba(42, 125, 225, 0.25);
 
   &:hover {
     background-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(42, 125, 225, 0.3);
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 
   &:disabled {
-    background-color: #ccc;
+    background-color: #cbd5e0;
     cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
   }
 }
 
+/* Container with improved responsive widths */
 .container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
 }
 
+/* Glassmorphism Card Style */
 .card {
-  background-color: white;
+  background: white;
   border-radius: var(--border-radius);
+  border: 1px solid #e2e8f0;
   box-shadow: var(--box-shadow);
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.15);
+  }
 }
 
+/* Modern form elements with micro-interactions */
 .form-group {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  position: relative;
 
   label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    transition: var(--transition);
   }
 
   input,
   select,
   textarea {
     width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
+    padding: 0.9rem 1rem;
+    border: 1px solid #e2e8f0;
     border-radius: var(--border-radius);
     font-size: 1rem;
     transition: var(--transition);
+    background-color: white;
 
     &:focus {
       outline: none;
       border-color: var(--primary-color);
-      box-shadow: 0 0 0 2px rgba(74, 105, 189, 0.2);
+      box-shadow: 0 0 0 3px rgba(42, 125, 225, 0.15);
     }
+
+    &:hover:not(:focus) {
+      border-color: #cbd5e0;
+    }
+  }
+
+  select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%232D3748' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
   }
 }
 
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .container {
-    padding: 0 0.75rem;
+    padding: 0 1rem;
   }
 
   .card {
-    padding: 1rem;
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+  h2 {
+    font-size: 1.5rem;
   }
 }
