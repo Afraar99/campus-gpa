@@ -1,0 +1,142 @@
+.gpa-calculator {
+  .card {
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+  }
+
+  .grading-system {
+    margin-bottom: 2rem;
+    max-width: 400px;
+  }
+
+  .courses-container {
+    margin-bottom: 1.5rem;
+
+    .courses-header {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 0.5fr;
+      gap: 10px;
+      font-weight: 600;
+      padding: 0.5rem 0;
+      border-bottom: 2px solid var(--primary-color);
+      margin-bottom: 0.75rem;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    .course-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 0.5fr;
+      gap: 10px;
+      margin-bottom: 1rem;
+      align-items: center;
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        background-color: #f9f9f9;
+        padding: 1rem;
+        border-radius: var(--border-radius);
+        margin-bottom: 1.5rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+        .course-name,
+        .credits,
+        .grade,
+        .semester {
+          margin-bottom: 0.75rem;
+
+          &::before {
+            content: attr(data-label);
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.25rem;
+          }
+        }
+
+        .dark-mode & {
+          background-color: #333;
+        }
+      }
+    }
+
+    .remove-btn {
+      background-color: transparent;
+      color: var(--danger-color);
+      padding: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        background-color: rgba(232, 65, 24, 0.1);
+      }
+    }
+
+    .add-course-btn {
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: var(--light-color);
+      color: var(--primary-color);
+      border: 1px dashed var(--primary-color);
+
+      &:hover {
+        background-color: rgba(74, 105, 189, 0.1);
+      }
+
+      .dark-mode & {
+        background-color: #444;
+        color: var(--light-color);
+        border-color: var(--secondary-color);
+
+        &:hover {
+          background-color: #555;
+        }
+      }
+    }
+  }
+
+  .actions-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+
+    .btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      @media (max-width: 576px) {
+        flex: 1 0 calc(50% - 0.5rem);
+      }
+    }
+
+    .save-btn {
+      background-color: var(--primary-color);
+    }
+
+    .import-btn {
+      background-color: var(--secondary-color);
+      cursor: pointer;
+    }
+
+    .export-btn {
+      background-color: var(--accent-color);
+    }
+
+    .pdf-btn {
+      background-color: #e74c3c;
+
+      &:hover {
+        background-color: #c0392b;
+      }
+    }
+  }
+}

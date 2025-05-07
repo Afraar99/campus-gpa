@@ -1,0 +1,16 @@
+.footer {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1.5rem 0;
+  text-align: center;
+  margin-top: auto;
+
+  p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+}
+
+.dark-mode .footer {
+  background-color: #1e272e;
+}

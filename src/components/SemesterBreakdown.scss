@@ -1,0 +1,103 @@
+.semester-breakdown {
+  h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+  }
+
+  .breakdown-table {
+    width: 100%;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+    .table-header {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr 2fr;
+      gap: 10px;
+      background-color: var(--primary-color);
+      color: white;
+      font-weight: 600;
+      padding: 1rem;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    .table-row {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr 2fr;
+      gap: 10px;
+      padding: 1rem;
+      background-color: #f9f9f9;
+      border-bottom: 1px solid #e0e0e0;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &.cumulative {
+        background-color: #edf2f7;
+        font-weight: 600;
+
+        .gpa-cell {
+          color: var(--primary-color);
+          font-weight: 700;
+        }
+      }
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        border-radius: var(--border-radius);
+        border: 1px solid #e0e0e0;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        .table-cell {
+          padding: 0.5rem 0;
+          display: flex;
+
+          &::before {
+            content: attr(data-label);
+            font-weight: bold;
+            flex: 0 0 120px;
+            margin-right: 1rem;
+          }
+
+          &:not(:last-child) {
+            border-bottom: 1px solid #eee;
+          }
+        }
+      }
+    }
+
+    .gpa-cell {
+      font-weight: 600;
+    }
+
+    .class-cell {
+      color: var(--primary-color);
+    }
+  }
+
+  .dark-mode & {
+    .breakdown-table {
+      .table-header {
+        background-color: var(--accent-color);
+      }
+
+      .table-row {
+        background-color: #373d49;
+        border-color: #444;
+
+        &.cumulative {
+          background-color: #2c3440;
+        }
+      }
+    }
+  }
+}

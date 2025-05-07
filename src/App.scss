@@ -1,0 +1,52 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  main {
+    flex: 1;
+    padding: 2rem 0;
+  }
+}
+
+.dark-mode {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+
+  .card {
+    background-color: #373d49;
+    color: var(--light-color);
+  }
+
+  button,
+  .btn {
+    background-color: var(--secondary-color);
+
+    &:hover {
+      background-color: var(--primary-color);
+    }
+  }
+
+  input,
+  select,
+  textarea {
+    background-color: #444;
+    border-color: #555;
+    color: var(--light-color);
+
+    &:focus {
+      border-color: var(--secondary-color);
+      box-shadow: 0 0 0 2px rgba(106, 137, 204, 0.4);
+    }
+  }
+
+  .table {
+    background-color: #373d49;
+    color: var(--light-color);
+
+    th,
+    td {
+      border-color: #555;
+    }
+  }
+}
